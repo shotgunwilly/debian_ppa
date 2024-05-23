@@ -1,0 +1,11 @@
+Package: debian-test
+Version: 1.0-1
+Architecture: all
+Maintainer: Me <me@foo.com>
+Filename: ./debian-test_1.0-1_amd64.deb
+Size: 1090532
+MD5sum: 2a424c9ffdf0519bf2079b5116f5efa2
+SHA1: a9cf993ff08618793ef7bd9ac1d4a04fcad0e1fd
+SHA256: c1da548947e96e448b6de2c9f13ff6c5257df3acc507df0af1f6e5c84704fe05
+Description: Debian package Hello World. Installs 'hello-debian' app.
+
