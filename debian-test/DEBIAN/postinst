@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+echo "Post install script: hello-debian app installed"
