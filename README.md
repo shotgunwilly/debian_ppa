@@ -23,7 +23,16 @@ Build the Debian package using the following commands:
 
 Install Debian package.
 
-```>$sudo dpkg -i debian-test.deb```
+```
+>$sudo dpkg -i debian-test.deb
+```
+
+Linting Debian Package
+
+```
+>$ sudo apt install lintian
+>$ lintian debian-test.deb 
+```
 
 Remove Debian package.
 
@@ -32,3 +41,37 @@ Remove Debian package.
 
 Official Debian Package Guide
 https://www.debian.org/doc/manuals/maint-guide/index.en.html
+
+
+# Creating PPA Repository
+
+Guide used: https://assafmo.github.io/2019/05/02/ppa-repo-hosted-on-github.html
+
+### Creating a GPG key
+
+Create a gpg key using the following commands. Select RSA, then 4096 for key length bits, valid forever for this example, enter contact info, and your key will be created.
+
+```
+>$ sudo apt install gnupg
+>$ gpg --full-gen-key
+```
+
+Create your public key file using the command below. Fill in your email address used to create the gpg key.
+
+```
+>$ gpg --armor --export "<EMAIL_ADDRESS>" > path/to/ppa/KEY.gpg
+```
+
+Copy Debian packages to ppa folder.
+
+cd ppa
+dpkg-scanpackages --multiversion . > Packages
+gzip -k -f Packages
+
+Creating the Release, Release.gpg and InRelease files
+
+```
+apt-ftparchive release . > Release
+gpg --default-key "dude@dude.com" -abs -o - Release > Release.gpg
+gpg --default-key "dude@dude.com" --clearsign -o - Release > InRelease
+```

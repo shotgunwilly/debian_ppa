@@ -1,5 +1,10 @@
 Package: debian-test
 Version: 1.0-1
-Architecture: all
+Architecture: amd64
 Maintainer: Me <me@foo.com>
 Description: Debian package Hello World. Installs 'hello-debian' app.
+
+
+
+
+debian-test_1.0-1_amd64.deb
